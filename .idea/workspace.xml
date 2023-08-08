@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bb36dc55-6e4a-452b-9a64-cdd2d171c245" name="Changes" comment="micro_routes flutter package">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro_app_1/lib/features/home_page/ma_1_home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro_app_1/lib/micro_app_1_routes.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro_host_app/lib/example_micro_app.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro_host_app/lib/features/home_page/example_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro_host_app/lib/features/home_page/home_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro_routes/lib/routes/application1_routes.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/micro_routes/lib/routes/application2_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_app_1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/micro_app_1/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_app_1/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/micro_app_1/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_app_1/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/micro_app_1/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_host_app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/micro_host_app/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_host_app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/micro_host_app/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_host_app/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/micro_host_app/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_host_app/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_routes/lib/micro_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/micro_routes/lib/micro_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_routes/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/micro_routes/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micro_routes/test/micro_routes_test.dart" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Tgpzf0XnXgJHJaQNio9ktzDXJt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/dctech/flutter_apps/own/flutter_mark_2",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bb36dc55-6e4a-452b-9a64-cdd2d171c245" name="Changes" comment="" />
+      <created>1691474844565</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691474844565</updated>
+    </task>
+    <task id="LOCAL-00001" summary="micro_host_app initial">
+      <created>1691474909663</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691474909663</updated>
+    </task>
+    <task id="LOCAL-00002" summary="micro_host_app flutter framework">
+      <created>1691474964079</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691474964079</updated>
+    </task>
+    <task id="LOCAL-00003" summary="micro_app_1 flutter framework">
+      <created>1691475008107</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691475008107</updated>
+    </task>
+    <task id="LOCAL-00004" summary="micro_routes flutter package">
+      <created>1691475294426</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691475294426</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="micro_host_app initial" />
+    <MESSAGE value="micro_host_app flutter framework" />
+    <MESSAGE value="micro_app_1 flutter framework" />
+    <MESSAGE value="micro_routes flutter package" />
+    <option name="LAST_COMMIT_MESSAGE" value="micro_routes flutter package" />
+  </component>
+</project>
