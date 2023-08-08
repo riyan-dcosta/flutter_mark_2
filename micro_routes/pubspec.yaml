@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_micro_app: ^0.12.1
+  micro_app_1:
+    path: ../micro_app_1
 
 dev_dependencies:
   flutter_test:
