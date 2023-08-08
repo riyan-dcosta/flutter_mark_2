@@ -4,26 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb36dc55-6e4a-452b-9a64-cdd2d171c245" name="Changes" comment="micro_routes flutter package">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/micro_app_1/lib/features/home_page/ma_1_home_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/micro_app_1/lib/micro_app_1_routes.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/micro_host_app/lib/example_micro_app.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/micro_host_app/lib/features/home_page/example_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/micro_host_app/lib/features/home_page/home_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/micro_routes/lib/routes/application1_routes.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/micro_routes/lib/routes/application2_routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_app_1/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/micro_app_1/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_app_1/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/micro_app_1/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_app_1/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/micro_app_1/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_host_app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/micro_host_app/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_host_app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/micro_host_app/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_host_app/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/micro_host_app/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_host_app/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_routes/lib/micro_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/micro_routes/lib/micro_routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_routes/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/micro_routes/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micro_routes/test/micro_routes_test.dart" beforeDir="false" />
+    <list default="true" id="bb36dc55-6e4a-452b-9a64-cdd2d171c245" name="Changes" comment="micro host app for micro app 1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +72,28 @@
       <option name="project" value="LOCAL" />
       <updated>1691475294426</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="micro_routes with 1 micro app">
+      <created>1691485209993</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691485209993</updated>
+    </task>
+    <task id="LOCAL-00006" summary="micro app 1 initial">
+      <created>1691485280340</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691485280340</updated>
+    </task>
+    <task id="LOCAL-00007" summary="micro host app for micro app 1">
+      <created>1691485311416</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691485311416</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -98,6 +101,9 @@
     <MESSAGE value="micro_host_app flutter framework" />
     <MESSAGE value="micro_app_1 flutter framework" />
     <MESSAGE value="micro_routes flutter package" />
-    <option name="LAST_COMMIT_MESSAGE" value="micro_routes flutter package" />
+    <MESSAGE value="micro_routes with 1 micro app" />
+    <MESSAGE value="micro app 1 initial" />
+    <MESSAGE value="micro host app for micro app 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="micro host app for micro app 1" />
   </component>
 </project>
