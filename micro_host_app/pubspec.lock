@@ -49,6 +49,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  dart_log:
+    dependency: transitive
+    description:
+      name: dart_log
+      sha256: a9fdd63fde1a0e4746d840c750d6c037e772b9487325f3f330e3ec5259947fd8
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -70,6 +86,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  flutter_micro_app:
+    dependency: "direct main"
+    description:
+      name: flutter_micro_app
+      sha256: c11a5b6e0cb52799281d691b53d55c8cfc09406e2598da757eb62288cdd67d17
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.12.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -115,6 +139,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  micro_app_1:
+    dependency: "direct main"
+    description:
+      path: "../micro_app_1"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  micro_routes:
+    dependency: "direct main"
+    description:
+      path: "../micro_routes"
+      relative: true
+    source: path
+    version: "0.0.1"
   path:
     dependency: transitive
     description:
@@ -186,3 +224,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=3.0.6 <4.0.0"
+  flutter: ">=1.17.0"

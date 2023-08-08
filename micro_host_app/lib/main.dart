@@ -1,125 +1,221 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_micro_app/dependencies.dart';
+import 'package:flutter_micro_app/flutter_micro_app.dart';
+import 'package:micro_app_1/micro_app_1_routes.dart';
+import 'package:micro_host_app/example_micro_app.dart';
+import 'package:micro_routes/micro_routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  final isAndroid = Platform.isAndroid;
+  MicroAppPreferences.update(
+    MicroAppConfig(
+      nativeEventsEnabled: isAndroid,
+      nativeNavigationCommandEnabled: isAndroid,
+      nativeNavigationLogEnabled: false,
+      pageTransitionType: MicroPageTransitionType.platform,
+      onRouteNotRegistered: (route, {arguments, type, context}) {
+        // ignore: avoid_print
+        print(
+            'CALLBACK:[OnRouteNotRegistered] Route not found: $route, $arguments, $type');
+      },
+    ),
+  );
+
+  // Listen to navigation events
+  final internalNavigationSubs =
+      NavigatorInstance.eventController.flutterLoggerStream.listen((event) {
+    logger.d('[flutter: navigation_log] -> $event');
+  });
+
+  final nativeNavigationCommands =
+      NavigatorInstance.eventController.nativeCommandStream.listen((event) {
+    logger.d('[navigation_command] -> $event');
+
+    //* You can open pages that native asked
+    if (event.method == Constants.methodNavigationCommand) {
+      final map = jsonDecode(event.arguments.toString());
+      final routeThatNativeRequestToOpen = map['route'];
+      final arguments = map['arguments'];
+      final type = map['type'];
+
+      NavigatorInstance.pushNamed(routeThatNativeRequestToOpen,
+          arguments: arguments, type: type);
+      logger.d(
+          'Native asked Flutter to open a Page -> $routeThatNativeRequestToOpen');
+    }
+  });
+
+  // Register a orphan handler, just to example purpose
+  MicroAppEventController().registerHandler(MicroAppEventHandler((e) {}));
+
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// This is host application
+class MyApp extends MicroHostStatelessWidget with HandlerRegisterMixin {
+  MyApp({Key? key}) : super(key: key) {
+    registerEventHandler(
+        MicroAppEventHandler<int>((e) {}, channels: const ['day_update']));
+  }
 
-  // This widget is the root of your application.
+  // This is completely OPTIONAL!
+  // Override `onGenerateRoute` in order to define a default error page (if needed)
+  // or to request native app to open the route
+  @override
+  Route? onGenerateRoute(RouteSettings settings,
+      {bool? routeNativeOnError, MicroAppBaseRoute? baseRoute}) {
+    //! If you wish native app receive requests to open routes, IN CASE there
+    //! is no route registered in Flutter, please set [routeNativeOnError: true]
+    final pageRoute = super.onGenerateRoute(settings, routeNativeOnError: true);
+
+    //? If you want to display a NOT_FOUND page, instead of get an error
+    // if (pageRoute == null) {
+    //   // If pageRoute is null, this route wasn't registered(unavailable)
+    //   return MaterialPageRoute(
+    //       builder: (_) => Scaffold(
+    //             appBar: AppBar(),
+    //             body: const Center(
+    //               child: Text('Page Not Found'),
+    //             ),
+    //           ));
+    // }
+    return pageRoute;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      navigatorKey: NavigatorInstance.navigatorKey,
+      // Required
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: maAppBaseRoute,
+      // or MicroAppPreferences.config.appBaseRoute.baseRoute.route
+      navigatorObservers: [
+        HeroController(),
+        // NavigatorInstance // Add NavigatorInstance here, if you want to get didPop, didReplace and didPush events
+      ],
     );
   }
+
+  // Register all root [MicroAppPage]s in app host
+  @override
+  List<MicroAppPage> get pages => [
+        MicroAppPage<BaseHomePage>(
+            route: maAppBaseRoute,
+            // or MicroAppPreferences.config.appBaseRoute.baseRoute.route
+            pageBuilder: PageBuilder(builder: (_, __) => const BaseHomePage()))
+      ];
+
+  // Register all [MicroApp]s in app host
+  @override
+  List<MicroApp> get initialMicroApps => [
+        MicroApplication1(),
+        MicroApp1Route(),
+      ];
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+// This widget is registered as initial route in [MyApp] pages list
+class BaseHomePage extends StatefulWidget {
+  const BaseHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<BaseHomePage> createState() => _BaseHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+class _BaseHomePageState extends State<BaseHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    MicroBoard.showButton();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    return AnimatedBuilder(
+        animation: Listenable.merge(<Listenable>[
+          backgroundColorController,
+          buttonsColorController,
+        ]),
+        builder: (context, child) {
+          return Container(
+              padding: const EdgeInsets.all(16),
+              color: backgroundColorController.value,
+              alignment: Alignment.center,
+              child: ElevatedButtonTheme(
+                data: ElevatedButtonThemeData(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          buttonsColorController.value)),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ElevatedButton(
+                      child: const Text('Open Example MaterialApp'),
+                      onPressed: () {
+                        context.maNav.pushNamed(Application1Routes().homePage);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    ElevatedButton(
+                      child: const Text('Open Nested MicroAppNavigator'),
+                      onPressed: () {
+                        context.maNav.pushNamed(Application2Routes().homePage);
+                        // context.maNav.pushNamed(
+                        //     Application2Routes().microAppNavigator,
+                        //     arguments: 'microAppNavigator argument');
+                      },
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+
+                    ///
+                    // ElevatedButton(
+                    //   child: const Text('Open a float page'),
+                    //   onPressed: () {
+                    //     final controller = MicroAppOverlayController(
+                    //       isDraggable: true,
+                    //       position: Offset(
+                    //           (MediaQuery.of(context).size.width * .05), 100),
+                    //       size:
+                    //           Size(MediaQuery.of(context).size.width * .9, 160),
+                    //       route: Application2Routes().pageColors,
+                    //     );
+                    //     controller.open(
+                    //         builder: (child, controller) => ColorsFloatFrame(
+                    //               child: child,
+                    //               controller: controller,
+                    //             ));
+                    //   },
+                    // ),
+                    ///
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    SizedBox(
+                        height: 50,
+                        child: context.maNav.getPageWidget(
+                            Application1Routes().pageExampleFragment,
+                            orElse: Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.red,
+                            )))
+                  ],
+                ),
+              ));
+        });
   }
 }
