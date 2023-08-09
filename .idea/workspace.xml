@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb36dc55-6e4a-452b-9a64-cdd2d171c245" name="Changes" comment="micro host app for micro app 1">
+    <list default="true" id="bb36dc55-6e4a-452b-9a64-cdd2d171c245" name="Changes" comment=".idea file update.">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691485311416</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=".idea file update.">
+      <created>1691489033030</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1691489033030</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -104,6 +112,7 @@
     <MESSAGE value="micro_routes with 1 micro app" />
     <MESSAGE value="micro app 1 initial" />
     <MESSAGE value="micro host app for micro app 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="micro host app for micro app 1" />
+    <MESSAGE value=".idea file update." />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea file update." />
   </component>
 </project>
